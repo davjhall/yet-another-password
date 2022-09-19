@@ -19,7 +19,7 @@ var character = parseInt(prompt("How many characters would you like in your pass
 
   if (character < 8 || character > 125) { 
     alert ("Character length must be greater than 8 characters and less than 125 characters.");
-   }
+   } 
 
   
 
@@ -32,7 +32,7 @@ var character = parseInt(prompt("How many characters would you like in your pass
 
  var uCase = confirm("Do you want uppercase letters included in your new password?");
   if(uCase) {
-  allCharacters += upperCase;}
+  allCharacters += upperCase;} 
 
 
 
@@ -50,7 +50,7 @@ var character = parseInt(prompt("How many characters would you like in your pass
 
   for( var i = 0; i <= character; i++) {
     var randomNumber = Math.floor(Math.random() * allCharacters.length);
-    generatedPassword += allCharacters.substring(randomNumber, randomNumber = 1);}
+    generatedPassword += allCharacters.charAt(randomNumber, randomNumber = 1);} 
 
 
   return generatedPassword; 
