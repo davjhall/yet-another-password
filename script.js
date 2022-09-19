@@ -1,63 +1,69 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-function generatePassword () {
+
+var lowerCase = ['abcdefghijklmnopqrstuvwxyz'];
+var upperCase = ['ABCDEFGHIJKLMNOPQRSTUVWXYZ'];
+var theNums = ["0123456789"];
+var specialCharacters = ["!@#$%^&*()_-+=[{]}:;'<>?/|"];
+var allCharacters = "";
 
 
-var character = prompt("How many characters would you like in your password?");
+function generatePassword() {
 
-
-// for (character.length < 8) { 
-//   prompt ("Character length must be greater than 8 characters.")};
-// let x = document.numb.value
-
-
-
-
-
-
-  if (parseInt(character) < 8) { 
-    confirm ("Character length must be greater than 8 characters.");}
-
-    else if (parseInt(character) > 125) {
-    confirm("Character length must be less than 125 characters");}
-
-    
-}
-
-  // else if (character.valueOf.length > 125) { prompt ("Character length must be less than 125 characters.")};
+  let generatedPassword = "";
 
 
 
+var character = parseInt(prompt("How many characters would you like in your password?"));
 
+  if (character < 8 || character > 125) { 
+    alert ("Character length must be greater than 8 characters and less than 125 characters.");
+   }
 
-
-
-
-
-
-
-
-
-
-// return "generated password";
-
-// }
-
-
-
-
-
-
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
   
-  var passwordText = document.querySelector("#password");
 
-  passwordText.value = password;
+  allCharacters = []
+    var lCase= confirm("Do you want lowercase letters included in your new password?");
+  if(lCase) {
+    allCharacters += lowerCase;}
+  
+
+
+ var uCase = confirm("Do you want uppercase letters included in your new password?");
+  if(uCase) {
+  allCharacters += upperCase;}
+
+
+
+  var nums= confirm("Do you want numbers included in your new password?");
+  if(nums) {
+  allCharacters += theNums;}
+
+
+
+  var special= confirm("Do you want special characters included in your new password");
+  if(special) {
+    allCharacters += specialCharacters;}
+
+  
+
+  for( var i = 0; i <= character; i++) {
+    var randomNumber = Math.floor(Math.random() * allCharacters.length);
+    generatedPassword += allCharacters.substring(randomNumber, randomNumber = 1);}
+
+
+  return generatedPassword; 
 
 }
+
+
+  function writePassword() {
+var password = generatePassword();
+  
+var passwordText = document.querySelector("#password");
+
+passwordText.value = password;}
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
@@ -65,10 +71,9 @@ generateBtn.addEventListener("click", writePassword);
 
 
 
-// var lCase= confirm("Do you want lowercase letters included in your new password");
 
-// var uCase= confirm("Do you want uppercase letters included in your new password");
 
-// var nums= confirm("Do you want numbers included in your new password");
 
-// var special= confirm("Do you want special characters included in your new password");
+
+
+// Write password to the #password input
